@@ -12,9 +12,7 @@
 
 get_header(); ?>
 
-<div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+
 <?php
 /* Define Variable Of Player */
 
@@ -27,6 +25,9 @@ $images = get_post_meta( $post->ID, 'category-image-id' );
 
 
 ?>
+<div class="wrap">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -34,31 +35,36 @@ $images = get_post_meta( $post->ID, 'category-image-id' );
 
  ?>
 
-  <h2>Player Name:<?php the_title();?></h2>
+ <div class="container">
+    <div class="row">
+        <div class="col-sm-2 col-md-2">
+           
 
 
-				
-
-				
-
- <h2>More Info</h2>
-
-<ul>
-	
-   <li><?php echo 'BrithDate:' . $Date;?></li>
-   <li><?php echo 'Biography:' . $Bio;?></li>
-   <li><?php echo ' ​T-shirt​ ​number:' . $TshirtNum;?></li>
-<?php
+            <?php
    if ( $images ) {
     foreach ( $images as $attachment_id ) {
         $thumb = wp_get_attachment_image( $attachment_id, 'thumbnail' );
         $full_size = wp_get_attachment_url( $attachment_id );
  
-        printf( '<li>Player Image</li><a href="%s">%s</a>', $full_size, $thumb );
+        printf( '<a href="%s" target="_blank" class="img-rounded img-responsive" >%s </a>', $full_size, $thumb );
     }
 }
 ?>
-</ul> 
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <blockquote>
+                <p><?php the_title();?></p> 
+            </blockquote>
+            <p> <i class="glyphicon glyphicon-envelope"></i> <?php echo ' ​T-shirt​ ​number: ' . $TshirtNum;?>
+                <br
+                /> <i class="glyphicon glyphicon-globe"></i> <?php echo 'Biography: ' . $Bio;?>
+                <br /> <i class="glyphicon glyphicon-gift"></i> <?php echo 'BrithDate: ' . $Date;?></p>
+        </div>
+        
+      
+    </div>
+</div>
 				<?php 
 				the_post_navigation( array(
 					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
