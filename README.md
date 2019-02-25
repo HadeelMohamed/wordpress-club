@@ -8,10 +8,11 @@
    Password:2771991_h) 
 ///////about code//
 
-1- All funcations of player and tea in team-funcation
-2-And Front end  i create two page 
-One for about club called "page-aboutclub.php"
-Second for team called "page-team.php"
- and i make changes in "single.php" page
+1-  funcations of player in 'player-funcation.php' location 'wp-content/themes/twentyseventeen/inc'
+2-team funcations in 'team-funcation.php' location'wp-content/themes/twentyseventeen/inc'
+3-And Front end  I create two page 
+-One for about club called "page-aboutclub.php"
+-Second for team called "page-team.php"
+-I make changes in "single.php" page
 
 

@@ -7,10 +7,14 @@
 
 require( ABSPATH . WPINC . '/option.php' );
 /**
- * calling team plyaer funcation
+ * calling team  funcation
  */
 require (ABSPATH  .'/wp-content/themes/twentyseventeen/inc/team-funcation.php' );
 
+/**
+ * calling player  funcation
+ */
+require (ABSPATH  .'/wp-content/themes/twentyseventeen/inc/player-funcation.php' );
 
 /**
  * Convert given date string into a different format.
