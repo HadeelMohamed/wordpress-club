@@ -6,5 +6,12 @@
 6- Run the Project
 7-  Enter Dashbard  by (User Name : HadeelMohammed
    Password:2771991_h) 
+///////about code//
+
+1- All funcations of player and tea in team-funcation
+2-And Front end  i create two page 
+One for about club called "page-aboutclub.php"
+Second for team called "page-team.php"
+ and i make changes in "single.php" page
 
 

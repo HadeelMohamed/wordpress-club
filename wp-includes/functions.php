@@ -7,7 +7,7 @@
 
 require( ABSPATH . WPINC . '/option.php' );
 /**
- * calling team taxonomy
+ * calling team plyaer funcation
  */
 require (ABSPATH  .'/wp-content/themes/twentyseventeen/inc/team-funcation.php' );
 
