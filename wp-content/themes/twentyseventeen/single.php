@@ -20,7 +20,7 @@ get_header(); ?>
        $Bio = get_post_meta($post->ID, 'bio', true);
  $TshirtNum = get_post_meta($post->ID, 'num', true);
 
-$images = get_post_meta( $post->ID, 'category-image-id' );
+$images = get_post_meta( $post->ID, 'image-id' );
  
 
 

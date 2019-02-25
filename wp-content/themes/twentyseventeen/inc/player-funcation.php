@@ -93,9 +93,9 @@ function player_meta() {
   
 
     <div class="form-field term-group">
-     <label for="category-image-id"><?php _e('Image', 'hero-theme'); ?></label>
-     <input type="hidden" id="category-image-id" name="category-image-id" class="custom_media_url" value="">
-     <div id="category-image-wrapper"></div>
+     <label for="image-id"><?php _e('Image', 'hero-theme'); ?></label>
+     <input type="hidden" id="image-id" name="image-id" class="custom_media_url" value="">
+     <div id="image-wrapper"></div>
      <p>
        <input type="button" class="button button-secondary ct_tax_media_button" id="ct_tax_media_button" name="ct_tax_media_button" value="<?php _e( 'Add Image', 'hero-theme' ); ?>" />
        <input type="button" class="button button-secondary ct_tax_media_remove" id="ct_tax_media_remove" name="ct_tax_media_remove" value="<?php _e( 'Remove Image', 'hero-theme' ); ?>" />
@@ -116,7 +116,7 @@ function save_details(){
   update_post_meta($post->ID, "date", $_POST["date"]);
   update_post_meta($post->ID, "bio", $_POST["bio"]);
   update_post_meta($post->ID, "num", $_POST["num"]);
-  update_post_meta($post->ID, "category-image-id", $_POST["category-image-id"]);
+  update_post_meta($post->ID, "image-id", $_POST["image-id"]);
 
 
 }
@@ -137,9 +137,9 @@ function add_script() { ?>
            _custom_media = true;
            wp.media.editor.send.attachment = function(props, attachment){
              if ( _custom_media ) {
-               $('#category-image-id').val(attachment.id);
-               $('#category-image-wrapper').html('<img class="custom_media_image" src="" style="margin:0;padding:0;max-height:200;float:none;" />');
-               $('#category-image-wrapper .custom_media_image').attr('src',attachment.url).css('display','block');
+               $('#image-id').val(attachment.id);
+               $('#image-wrapper').html('<img class="custom_media_image" src="" style="margin:0;padding:0;max-height:200;float:none;" />');
+               $('#image-wrapper .custom_media_image').attr('src',attachment.url).css('display','block');
              } else {
                return _orig_send_attachment.apply( button_id, [props, attachment] );
              }
@@ -150,10 +150,10 @@ function add_script() { ?>
      }
      ct_media_upload('.ct_tax_media_button.button'); 
      $('body').on('click','.ct_tax_media_remove',function(){
-       $('#category-image-id').val('');
-       $('#category-image-wrapper').html('<img class="custom_media_image" src="" style="margin:0;padding:0;max-height:200;float:none;" />');
+       $('#image-id').val('');
+       $('#image-wrapper').html('<img class="custom_media_image" src="" style="margin:0;padding:0;max-height:200;float:none;" />');
      });
-     // Thanks: http://stackoverflow.com/questions/15281995/wordpress-create-category-ajax-response
+     // Thanks: http://stackoverflow.com/questions/15281995/wordpress-create--ajax-response
      $(document).ajaxComplete(function(event, xhr, settings) {
        var queryStringArr = settings.data.split('&');
        if( $.inArray('action=add-tag', queryStringArr) !== -1 ){
@@ -161,7 +161,7 @@ function add_script() { ?>
          $response = $(xml).find('term_id').text();
          if($response!=""){
            // Clear the thumb image
-           $('#category-image-wrapper').html('');
+           $('#image-wrapper').html('');
          }
        }
      });
